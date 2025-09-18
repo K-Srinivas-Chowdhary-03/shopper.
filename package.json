@@ -8,7 +8,6 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.11.0",
-    "axois": "^0.0.1-security",
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
     "cors": "^2.8.5",
@@ -25,8 +24,11 @@
     "yup": "^1.7.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node server/server.js",
+    "server": "node server/server.js",
+    "client": "react-scripts start",
+    "client:build": "react-scripts build",
+    "heroku-postbuild": "npm run client:build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

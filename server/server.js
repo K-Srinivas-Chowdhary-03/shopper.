@@ -3,15 +3,14 @@ var mongoClient = require("mongodb").MongoClient;
 var express = require("express");
 var cors = require("cors");
 
-const path = require('path');
+// Serve React frontend
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "..", "build")));
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "build", "index.html"));
+  });
+}
 
 var connectionString = "mongodb://127.0.0.1:27017";
 
