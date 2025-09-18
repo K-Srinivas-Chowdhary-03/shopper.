@@ -3,6 +3,10 @@ var mongoClient = require("mongodb").MongoClient;
 var express = require("express");
 var cors = require("cors");
 
+var connectionString = "mongodb://127.0.0.1:27017";
+
+var app = express();
+
 // Serve React frontend
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "..", "build")));
@@ -11,10 +15,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "..", "build", "index.html"));
   });
 }
-
-var connectionString = "mongodb://127.0.0.1:27017";
-
-var app = express();
 
 app.use(cors());
 
